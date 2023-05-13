@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SecondFragment"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_marginTop="@dimen/marginTitleTop_descrip"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ExampleText"/>
+
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="@dimen/descrip_photos_width"
+            android:layout_height="@dimen/descrip_photos_height"
+            android:layout_marginTop="@dimen/marginStart_descrip"
+            android:src="@drawable/ricksanchez"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerView21" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</FrameLayout>
