@@ -54,19 +54,26 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        String classId = getIntent().getStringExtra("id");
+        if(savedInstanceState == null){
+
+            String classId = getIntent().getStringExtra("id");
 
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        SecondFragment fragment = new SecondFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            SecondFragment fragment = new SecondFragment();
 
-        Bundle bundle = new Bundle();
-        bundle.putString("id", classId);
-        fragment.setArguments(bundle);
+            Bundle bundle = new Bundle();
+            bundle.putString("id", classId);
+            fragment.setArguments(bundle);
 
-        fragmentTransaction.add(R.id.main2, fragment);
-        fragmentTransaction.commit();
+            fragmentTransaction.add(R.id.main2, fragment);
+            fragmentTransaction.commit();
+
+        }
+
+
+
 
     }
 

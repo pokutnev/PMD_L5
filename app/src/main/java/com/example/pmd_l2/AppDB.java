@@ -14,7 +14,7 @@ import com.example.pmd_l2.entity.IDpersonIDepisode;
 import com.example.pmd_l2.entity.IDpersonIDurl;
 import com.example.pmd_l2.entity.Urlepisode;
 
-@Database(entities = {Details.class, Episode.class, Urlepisode.class, IDpersonIDepisode.class, IDpersonIDurl.class}, version = 2)
+@Database(entities = {Details.class, Episode.class, Urlepisode.class, IDpersonIDepisode.class, IDpersonIDurl.class}, version = 3)
 public abstract class AppDB extends RoomDatabase {
 
     public abstract UserDao userDao();

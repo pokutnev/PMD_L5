@@ -25,7 +25,4 @@ public interface EpisodeDao {
     @Query("SELECT * FROM episode WHERE idepisode IN (:id)")
     Episode getPersonID(String id);
 
-    @Query("SELECT description FROM episode")
-    List<String> getDescriptions();
-
 }

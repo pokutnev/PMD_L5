@@ -12,12 +12,18 @@ public class Episode {
     @NonNull
     @ColumnInfo(name = "idepisode")
     public String id;
-    @ColumnInfo(name = "description")
-    public String description;
+    @ColumnInfo(name = "episode")
+    public String episode;
+    @ColumnInfo(name = "air_date")
+    public String air_date;
+    @ColumnInfo(name = "name")
+    public String name;
 
-    public Episode(String id, String description) {
+    public Episode(@NonNull String id, String name, String air_date, String episode) {
         this.id = id;
-        this.description = description;
+        this.episode = episode;
+        this.air_date = air_date;
+        this.name = name;
     }
 
     public String getId() {
@@ -28,11 +34,27 @@ public class Episode {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getEpisode() {
+        return episode;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEpisode(String episode) {
+        this.episode = episode;
+    }
+
+    public String getAir_date() {
+        return air_date;
+    }
+
+    public void setAir_date(String air_date) {
+        this.air_date = air_date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

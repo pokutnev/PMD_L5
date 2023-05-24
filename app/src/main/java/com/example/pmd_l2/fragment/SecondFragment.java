@@ -26,6 +26,7 @@ import com.example.pmd_l2.Activities.MainActivity2;
 import com.example.pmd_l2.Adapters.MyAdapter2;
 import com.example.pmd_l2.AppDB;
 import com.example.pmd_l2.R;
+import com.example.pmd_l2.SpacesItemDecoration;
 import com.example.pmd_l2.entity.Details;
 import com.example.pmd_l2.entity.Episode;
 import com.example.pmd_l2.entity.IDpersonIDepisode;
@@ -67,11 +68,8 @@ public class SecondFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView21);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        recyclerView.addItemDecoration(new SpacesItemDecoration(80));
 
-
-
-//        MyAdapter2 adapter2 = new MyAdapter2(getActivity(), new Episode[0]);
-//        recyclerView.setAdapter(adapter2);
 
         recyclerView.setHasFixedSize(true);
 
@@ -183,8 +181,7 @@ public class SecondFragment extends Fragment {
 
 
             List<String> des = db.iDpersonIDurl().getEpisodes(id);
-            Log.d("TAG", "doInBackground: " + id);
-            String[] res = new String[des.size()];
+
 
             OkHttpClient client = new OkHttpClient();
 
@@ -209,16 +206,8 @@ public class SecondFragment extends Fragment {
                     try (Response response2 = client.newCall(request1).execute()) {
 
                         JSONObject jsonResponse2 = new JSONObject(response2.body().string());
-
-                        res[j] = jsonResponse2.getString("name");
-                        res[j] += " ";
-                        res[j] += jsonResponse2.getString("air_date");
-                        res[j] += " ";
-                        res[j] += jsonResponse2.getString("episode");
-
                         String idEpisode = UUID.randomUUID().toString();
-//                    db.episodeDao().insert(new Episode(UUID.randomUUID().toString(), res[j]));
-                        db.episodeDao().insert(new Episode(idEpisode, res[j]));
+                        db.episodeDao().insert(new Episode(idEpisode, jsonResponse2.getString("name"), jsonResponse2.getString("air_date"), jsonResponse2.getString("episode")));
                         db.iDpersonIDepisodeDao().insert(new IDpersonIDepisode(UUID.randomUUID().toString(), id, idEpisode));
 
                     } catch (IOException | JSONException e) {

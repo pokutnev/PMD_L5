@@ -54,11 +54,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Рик и Морти");
 
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        FirstFragment fragment = new FirstFragment();
-        fragmentTransaction.add(R.id.main, fragment);
-        fragmentTransaction.commit();
+        if(savedInstanceState == null){
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            FirstFragment fragment = new FirstFragment();
+            fragmentTransaction.add(R.id.main, fragment);
+            fragmentTransaction.commit();
+
+
+        }
+
+
 
 
     }
